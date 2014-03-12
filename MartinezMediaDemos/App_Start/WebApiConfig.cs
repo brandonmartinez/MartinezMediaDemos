@@ -9,8 +9,7 @@ namespace MartinezMediaDemos
         public static void Register(HttpConfiguration config)
         {
             config.MapHttpAttributeRoutes();
-
-            config.Routes.MapHttpRoute(name: "DefaultApi", routeTemplate: "api/{controller}/{id}", defaults: new
+            config.Routes.MapHttpRoute("DefaultApi", "{controller}/{id}", new
             {
                 id = RouteParameter.Optional
             });
