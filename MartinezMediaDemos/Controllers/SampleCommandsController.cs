@@ -56,6 +56,7 @@ namespace MartinezMediaDemos.Controllers
                 s.Id = Guid.NewGuid();
                 s.GeneratedAt = DateTime.UtcNow;
                 s.SentAt = null;
+                s.Command = (uint) randomNumberGenerator.Next(1, 10);
                 return s;
             }).Build();
         }
