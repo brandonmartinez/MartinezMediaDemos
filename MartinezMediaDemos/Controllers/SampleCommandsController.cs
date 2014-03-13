@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading;
 using System.Web.Http;
 using FizzWare.NBuilder;
 using MartinezMediaDemos.Models;
@@ -10,9 +11,28 @@ namespace MartinezMediaDemos.Controllers
     {
         #region public
 
+        public IEnumerable<SampleCommand> Get()
+        {
+            var randomNumberGenerator = new Random((int) DateTime.Now.Ticks);
+            var numberOfSampleCommands = randomNumberGenerator.Next(1, 1000);
+
+            var commands = Builder<SampleCommand>.CreateListOfSize(numberOfSampleCommands).All().With(s =>
+            {
+                s.Id = Guid.NewGuid();
+                s.GeneratedAt = DateTime.UtcNow;
+                s.SentAt = null;
+                s.Command = (uint) randomNumberGenerator.Next(1, 10);
+                return s;
+            }).Build();
+
+            fakeDelay();
+
+            return commands;
+        }
+
         public SampleCommandResult Post(SampleCommand sampleCommand)
         {
-            var randomNumberGenerator = new Random((int)DateTime.Now.Ticks);
+            var randomNumberGenerator = new Random((int) DateTime.Now.Ticks);
             var numberOfSampleCommands = randomNumberGenerator.Next(1, 100);
             var success = numberOfSampleCommands <= 80;
 
@@ -43,22 +63,21 @@ namespace MartinezMediaDemos.Controllers
                 }
             }
 
+            fakeDelay();
+
             return result;
         }
 
-        public IEnumerable<SampleCommand> Get()
-        {
-            var randomNumberGenerator = new Random((int) DateTime.Now.Ticks);
-            var numberOfSampleCommands = randomNumberGenerator.Next(1, 1000);
+        #endregion
 
-            return Builder<SampleCommand>.CreateListOfSize(numberOfSampleCommands).All().With(s =>
-            {
-                s.Id = Guid.NewGuid();
-                s.GeneratedAt = DateTime.UtcNow;
-                s.SentAt = null;
-                s.Command = (uint) randomNumberGenerator.Next(1, 10);
-                return s;
-            }).Build();
+        #region private
+
+        private void fakeDelay()
+        {
+            var rng = new Random((int) DateTime.Now.Ticks);
+            var delay = rng.Next(1, 15) * 1000;
+
+            Thread.Sleep(delay);
         }
 
         #endregion
