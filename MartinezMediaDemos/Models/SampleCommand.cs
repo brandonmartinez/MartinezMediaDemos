@@ -12,8 +12,6 @@ namespace MartinezMediaDemos.Models
 
         public Guid Id { get; set; }
 
-        public DateTime? ProcessedAt { get; set; }
-
         public DateTime? SentAt { get; set; }
 
         #endregion
