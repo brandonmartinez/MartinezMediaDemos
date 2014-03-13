@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Web.Http;
 using FizzWare.NBuilder;
+using MartinezMediaDemos.Helpers;
 using MartinezMediaDemos.Models;
 
 namespace MartinezMediaDemos.Controllers
@@ -11,10 +13,10 @@ namespace MartinezMediaDemos.Controllers
     {
         #region public
 
-        public IEnumerable<SampleCommand> Get()
+        public IEnumerable<SampleCommandSet> Get()
         {
             var randomNumberGenerator = new Random((int) DateTime.Now.Ticks);
-            var numberOfSampleCommands = randomNumberGenerator.Next(1, 100);
+            var numberOfSampleCommands = randomNumberGenerator.Next(1, 500);
 
             var commands = Builder<SampleCommand>.CreateListOfSize(numberOfSampleCommands).All().With(s =>
             {
@@ -25,9 +27,15 @@ namespace MartinezMediaDemos.Controllers
                 return s;
             }).Build();
 
+            var partitioned = commands.Partition(10).ToList();
+            var commandSets = partitioned.Select((t, i) => new SampleCommandSet
+            {
+                Name = "Command Set " + i, SampleCommands = t
+            }).ToList();
+
             fakeDelay();
 
-            return commands;
+            return commandSets;
         }
 
         public SampleCommandResult Post(SampleCommand sampleCommand)

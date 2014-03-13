@@ -95,8 +95,10 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\ListOperations.cs" />
     <Compile Include="Models\SampleCommand.cs" />
     <Compile Include="Models\SampleCommandResult.cs" />
+    <Compile Include="Models\SampleCommandSet.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
