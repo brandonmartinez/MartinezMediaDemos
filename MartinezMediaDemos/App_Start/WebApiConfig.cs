@@ -1,4 +1,5 @@
 ﻿using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace MartinezMediaDemos
 {
@@ -9,7 +10,7 @@ namespace MartinezMediaDemos
         public static void Register(HttpConfiguration config)
         {
             config.MapHttpAttributeRoutes();
-            config.EnableCors();
+            config.EnableCors(new EnableCorsAttribute("*", "*", "*"));
 
             config.Routes.MapHttpRoute("DefaultApi", "{controller}/{id}", new
             {
