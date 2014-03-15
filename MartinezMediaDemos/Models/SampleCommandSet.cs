@@ -8,7 +8,7 @@ namespace MartinezMediaDemos.Models
 
         public string Name { get; set; }
 
-        public List<SampleCommand> SampleCommands { get; set; }
+        public List<SampleCommand> Commands { get; set; }
 
         #endregion
 
@@ -16,7 +16,7 @@ namespace MartinezMediaDemos.Models
 
         public SampleCommandSet()
         {
-            SampleCommands = new List<SampleCommand>();
+            Commands = new List<SampleCommand>();
         }
 
         #endregion

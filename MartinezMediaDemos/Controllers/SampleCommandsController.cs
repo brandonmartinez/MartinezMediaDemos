@@ -30,7 +30,7 @@ namespace MartinezMediaDemos.Controllers
             var partitioned = commands.Partition(10).ToList();
             var commandSets = partitioned.Select((t, i) => new SampleCommandSet
             {
-                Name = "Command Set " + i, SampleCommands = t
+                Name = "Command Set " + i, Commands = t
             }).ToList();
 
             fakeDelay();
