@@ -83,7 +83,7 @@ namespace MartinezMediaDemos.Controllers
         private static void fakeDelay()
         {
             var rng = new Random((int) DateTime.Now.Ticks);
-            var delay = rng.Next(1, 10) * 1000;
+            var delay = rng.Next(1, 5) * 1000;
 
             Thread.Sleep(delay);
         }
