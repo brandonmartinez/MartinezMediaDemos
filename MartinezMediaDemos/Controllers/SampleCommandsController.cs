@@ -42,7 +42,7 @@ namespace MartinezMediaDemos.Controllers
         {
             var randomNumberGenerator = new Random((int) DateTime.Now.Ticks);
             var chanceOfError = randomNumberGenerator.Next(1, 100);
-            var success = chanceOfError <= 90;
+            var success = chanceOfError <= 80;
 
             var result = new SampleCommandResult
             {
@@ -52,11 +52,6 @@ namespace MartinezMediaDemos.Controllers
 
             if(!success)
             {
-                if(chanceOfError == 99)
-                {
-                    throw new Exception("A major exception occurred; server brought down.");
-                }
-
                 var errorMessage = chanceOfError % 5;
 
                 switch(errorMessage)
@@ -71,8 +66,7 @@ namespace MartinezMediaDemos.Controllers
                         result.AdditionalInformation = "What'd you break?";
                         break;
                     default:
-                        result.AdditionalInformation = "An unknown error occurred; please check your server logs.";
-                        break;
+                        throw new Exception("An unknown 500 error occurred; please check your server logs.");
                 }
             }
 
