@@ -41,8 +41,8 @@ namespace MartinezMediaDemos.Controllers
         public SampleCommandResult Post(SampleCommand sampleCommand)
         {
             var randomNumberGenerator = new Random((int) DateTime.Now.Ticks);
-            var numberOfSampleCommands = randomNumberGenerator.Next(1, 100);
-            var success = numberOfSampleCommands <= 80;
+            var chanceOfError = randomNumberGenerator.Next(1, 100);
+            var success = chanceOfError <= 90;
 
             var result = new SampleCommandResult
             {
@@ -52,7 +52,12 @@ namespace MartinezMediaDemos.Controllers
 
             if(!success)
             {
-                var errorMessage = numberOfSampleCommands % 5;
+                if(chanceOfError == 99)
+                {
+                    throw new Exception("A major exception occurred; server brought down.");
+                }
+
+                var errorMessage = chanceOfError % 5;
 
                 switch(errorMessage)
                 {
