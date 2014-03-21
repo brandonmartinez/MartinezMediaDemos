@@ -185,6 +185,7 @@
     <Content Include="Presentations\FromCallbackHellToTheJavaScriptPromiseLand\slides\test\test-markdown.js" />
     <Content Include="Presentations\FromCallbackHellToTheJavaScriptPromiseLand\slides\test\test.html" />
     <Content Include="Presentations\FromCallbackHellToTheJavaScriptPromiseLand\slides\test\test.js" />
+    <Content Include="Presentations\index.html" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
