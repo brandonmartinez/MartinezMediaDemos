@@ -103,6 +103,88 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
+    <Content Include="Presentations\FromCallbackHellToTheJavaScriptPromiseLand\Abstracts\20140204 - GR Dev Day 2014.txt" />
+    <Content Include="Presentations\FromCallbackHellToTheJavaScriptPromiseLand\demos\01-Callbacks.html" />
+    <Content Include="Presentations\FromCallbackHellToTheJavaScriptPromiseLand\demos\02-Callbacks.html" />
+    <Content Include="Presentations\FromCallbackHellToTheJavaScriptPromiseLand\demos\03-Promises.html" />
+    <Content Include="Presentations\FromCallbackHellToTheJavaScriptPromiseLand\demos\_\css\bootstrap-theme.min.css" />
+    <Content Include="Presentations\FromCallbackHellToTheJavaScriptPromiseLand\demos\_\css\bootstrap.min.css" />
+    <Content Include="Presentations\FromCallbackHellToTheJavaScriptPromiseLand\demos\_\css\style.css" />
+    <Content Include="Presentations\FromCallbackHellToTheJavaScriptPromiseLand\demos\_\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Presentations\FromCallbackHellToTheJavaScriptPromiseLand\demos\_\js\01-Callbacks.js" />
+    <Content Include="Presentations\FromCallbackHellToTheJavaScriptPromiseLand\demos\_\js\02-Callbacks.js" />
+    <Content Include="Presentations\FromCallbackHellToTheJavaScriptPromiseLand\demos\_\js\03-Promises.js" />
+    <Content Include="Presentations\FromCallbackHellToTheJavaScriptPromiseLand\demos\_\js\bootstrap.min.js" />
+    <Content Include="Presentations\FromCallbackHellToTheJavaScriptPromiseLand\demos\_\js\CommandModel.js" />
+    <Content Include="Presentations\FromCallbackHellToTheJavaScriptPromiseLand\demos\_\js\jquery-2.1.0.min.js" />
+    <Content Include="Presentations\FromCallbackHellToTheJavaScriptPromiseLand\demos\_\js\knockout-3.1.0.js" />
+    <Content Include="Presentations\FromCallbackHellToTheJavaScriptPromiseLand\demos\_\js\q.js" />
+    <Content Include="Presentations\FromCallbackHellToTheJavaScriptPromiseLand\slides\css\print\paper.css" />
+    <Content Include="Presentations\FromCallbackHellToTheJavaScriptPromiseLand\slides\css\print\pdf.css" />
+    <Content Include="Presentations\FromCallbackHellToTheJavaScriptPromiseLand\slides\css\reveal.css" />
+    <Content Include="Presentations\FromCallbackHellToTheJavaScriptPromiseLand\slides\css\reveal.min.css" />
+    <Content Include="Presentations\FromCallbackHellToTheJavaScriptPromiseLand\slides\css\theme\beige.css" />
+    <Content Include="Presentations\FromCallbackHellToTheJavaScriptPromiseLand\slides\css\theme\blood.css" />
+    <Content Include="Presentations\FromCallbackHellToTheJavaScriptPromiseLand\slides\css\theme\default.css" />
+    <Content Include="Presentations\FromCallbackHellToTheJavaScriptPromiseLand\slides\css\theme\moon.css" />
+    <Content Include="Presentations\FromCallbackHellToTheJavaScriptPromiseLand\slides\css\theme\night.css" />
+    <Content Include="Presentations\FromCallbackHellToTheJavaScriptPromiseLand\slides\css\theme\serif.css" />
+    <Content Include="Presentations\FromCallbackHellToTheJavaScriptPromiseLand\slides\css\theme\simple.css" />
+    <Content Include="Presentations\FromCallbackHellToTheJavaScriptPromiseLand\slides\css\theme\sky.css" />
+    <Content Include="Presentations\FromCallbackHellToTheJavaScriptPromiseLand\slides\css\theme\solarized.css" />
+    <Content Include="Presentations\FromCallbackHellToTheJavaScriptPromiseLand\slides\Gruntfile.js" />
+    <Content Include="Presentations\FromCallbackHellToTheJavaScriptPromiseLand\slides\img\avatar.jpg" />
+    <Content Include="Presentations\FromCallbackHellToTheJavaScriptPromiseLand\slides\img\braces.jpg" />
+    <Content Include="Presentations\FromCallbackHellToTheJavaScriptPromiseLand\slides\img\demomockup.png" />
+    <Content Include="Presentations\FromCallbackHellToTheJavaScriptPromiseLand\slides\img\easybutton.png" />
+    <Content Include="Presentations\FromCallbackHellToTheJavaScriptPromiseLand\slides\img\functception.jpg" />
+    <Content Include="Presentations\FromCallbackHellToTheJavaScriptPromiseLand\slides\img\goodnames.jpg" />
+    <Content Include="Presentations\FromCallbackHellToTheJavaScriptPromiseLand\slides\img\promiseland.jpg" />
+    <Content Include="Presentations\FromCallbackHellToTheJavaScriptPromiseLand\slides\img\welcometocallbackhell.jpg" />
+    <Content Include="Presentations\FromCallbackHellToTheJavaScriptPromiseLand\slides\index.html" />
+    <Content Include="Presentations\FromCallbackHellToTheJavaScriptPromiseLand\slides\js\reveal.js" />
+    <Content Include="Presentations\FromCallbackHellToTheJavaScriptPromiseLand\slides\js\reveal.min.js" />
+    <Content Include="Presentations\FromCallbackHellToTheJavaScriptPromiseLand\slides\lib\css\zenburn.css" />
+    <Content Include="Presentations\FromCallbackHellToTheJavaScriptPromiseLand\slides\lib\font\league_gothic-webfont.svg" />
+    <Content Include="Presentations\FromCallbackHellToTheJavaScriptPromiseLand\slides\lib\js\classList.js" />
+    <Content Include="Presentations\FromCallbackHellToTheJavaScriptPromiseLand\slides\lib\js\head.min.js" />
+    <Content Include="Presentations\FromCallbackHellToTheJavaScriptPromiseLand\slides\lib\js\html5shiv.js" />
+    <Content Include="Presentations\FromCallbackHellToTheJavaScriptPromiseLand\slides\plugin\highlight\highlight.js" />
+    <Content Include="Presentations\FromCallbackHellToTheJavaScriptPromiseLand\slides\plugin\leap\leap.js" />
+    <Content Include="Presentations\FromCallbackHellToTheJavaScriptPromiseLand\slides\plugin\markdown\example.html" />
+    <Content Include="Presentations\FromCallbackHellToTheJavaScriptPromiseLand\slides\plugin\markdown\markdown.js" />
+    <Content Include="Presentations\FromCallbackHellToTheJavaScriptPromiseLand\slides\plugin\markdown\marked.js" />
+    <Content Include="Presentations\FromCallbackHellToTheJavaScriptPromiseLand\slides\plugin\math\math.js" />
+    <Content Include="Presentations\FromCallbackHellToTheJavaScriptPromiseLand\slides\plugin\multiplex\client.js" />
+    <Content Include="Presentations\FromCallbackHellToTheJavaScriptPromiseLand\slides\plugin\multiplex\index.js" />
+    <Content Include="Presentations\FromCallbackHellToTheJavaScriptPromiseLand\slides\plugin\multiplex\master.js" />
+    <Content Include="Presentations\FromCallbackHellToTheJavaScriptPromiseLand\slides\plugin\notes-server\client.js" />
+    <Content Include="Presentations\FromCallbackHellToTheJavaScriptPromiseLand\slides\plugin\notes-server\index.js" />
+    <Content Include="Presentations\FromCallbackHellToTheJavaScriptPromiseLand\slides\plugin\notes-server\notes.html" />
+    <Content Include="Presentations\FromCallbackHellToTheJavaScriptPromiseLand\slides\plugin\notes\notes.html" />
+    <Content Include="Presentations\FromCallbackHellToTheJavaScriptPromiseLand\slides\plugin\notes\notes.js" />
+    <Content Include="Presentations\FromCallbackHellToTheJavaScriptPromiseLand\slides\plugin\postmessage\example.html" />
+    <Content Include="Presentations\FromCallbackHellToTheJavaScriptPromiseLand\slides\plugin\postmessage\postmessage.js" />
+    <Content Include="Presentations\FromCallbackHellToTheJavaScriptPromiseLand\slides\plugin\print-pdf\print-pdf.js" />
+    <Content Include="Presentations\FromCallbackHellToTheJavaScriptPromiseLand\slides\plugin\remotes\remotes.js" />
+    <Content Include="Presentations\FromCallbackHellToTheJavaScriptPromiseLand\slides\plugin\search\search.js" />
+    <Content Include="Presentations\FromCallbackHellToTheJavaScriptPromiseLand\slides\plugin\zoom-js\zoom.js" />
+    <Content Include="Presentations\FromCallbackHellToTheJavaScriptPromiseLand\slides\test\examples\assets\image1.png" />
+    <Content Include="Presentations\FromCallbackHellToTheJavaScriptPromiseLand\slides\test\examples\assets\image2.png" />
+    <Content Include="Presentations\FromCallbackHellToTheJavaScriptPromiseLand\slides\test\examples\barebones.html" />
+    <Content Include="Presentations\FromCallbackHellToTheJavaScriptPromiseLand\slides\test\examples\embedded-media.html" />
+    <Content Include="Presentations\FromCallbackHellToTheJavaScriptPromiseLand\slides\test\examples\math.html" />
+    <Content Include="Presentations\FromCallbackHellToTheJavaScriptPromiseLand\slides\test\examples\slide-backgrounds.html" />
+    <Content Include="Presentations\FromCallbackHellToTheJavaScriptPromiseLand\slides\test\qunit-1.12.0.css" />
+    <Content Include="Presentations\FromCallbackHellToTheJavaScriptPromiseLand\slides\test\qunit-1.12.0.js" />
+    <Content Include="Presentations\FromCallbackHellToTheJavaScriptPromiseLand\slides\test\test-markdown-element-attributes.html" />
+    <Content Include="Presentations\FromCallbackHellToTheJavaScriptPromiseLand\slides\test\test-markdown-element-attributes.js" />
+    <Content Include="Presentations\FromCallbackHellToTheJavaScriptPromiseLand\slides\test\test-markdown-slide-attributes.html" />
+    <Content Include="Presentations\FromCallbackHellToTheJavaScriptPromiseLand\slides\test\test-markdown-slide-attributes.js" />
+    <Content Include="Presentations\FromCallbackHellToTheJavaScriptPromiseLand\slides\test\test-markdown.html" />
+    <Content Include="Presentations\FromCallbackHellToTheJavaScriptPromiseLand\slides\test\test-markdown.js" />
+    <Content Include="Presentations\FromCallbackHellToTheJavaScriptPromiseLand\slides\test\test.html" />
+    <Content Include="Presentations\FromCallbackHellToTheJavaScriptPromiseLand\slides\test\test.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -111,7 +193,33 @@
       <DependentUpon>Web.config</DependentUpon>
     </Content>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Presentations\FromCallbackHellToTheJavaScriptPromiseLand\.git" />
+    <Content Include="Presentations\FromCallbackHellToTheJavaScriptPromiseLand\demos\_\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Presentations\FromCallbackHellToTheJavaScriptPromiseLand\demos\_\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Presentations\FromCallbackHellToTheJavaScriptPromiseLand\demos\_\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Presentations\FromCallbackHellToTheJavaScriptPromiseLand\slides\css\theme\README.md" />
+    <Content Include="Presentations\FromCallbackHellToTheJavaScriptPromiseLand\slides\css\theme\source\beige.scss" />
+    <Content Include="Presentations\FromCallbackHellToTheJavaScriptPromiseLand\slides\css\theme\source\blood.scss" />
+    <Content Include="Presentations\FromCallbackHellToTheJavaScriptPromiseLand\slides\css\theme\source\default.scss" />
+    <Content Include="Presentations\FromCallbackHellToTheJavaScriptPromiseLand\slides\css\theme\source\moon.scss" />
+    <Content Include="Presentations\FromCallbackHellToTheJavaScriptPromiseLand\slides\css\theme\source\night.scss" />
+    <Content Include="Presentations\FromCallbackHellToTheJavaScriptPromiseLand\slides\css\theme\source\serif.scss" />
+    <Content Include="Presentations\FromCallbackHellToTheJavaScriptPromiseLand\slides\css\theme\source\simple.scss" />
+    <Content Include="Presentations\FromCallbackHellToTheJavaScriptPromiseLand\slides\css\theme\source\sky.scss" />
+    <Content Include="Presentations\FromCallbackHellToTheJavaScriptPromiseLand\slides\css\theme\source\solarized.scss" />
+    <Content Include="Presentations\FromCallbackHellToTheJavaScriptPromiseLand\slides\css\theme\template\mixins.scss" />
+    <Content Include="Presentations\FromCallbackHellToTheJavaScriptPromiseLand\slides\css\theme\template\settings.scss" />
+    <Content Include="Presentations\FromCallbackHellToTheJavaScriptPromiseLand\slides\css\theme\template\theme.scss" />
+    <Content Include="Presentations\FromCallbackHellToTheJavaScriptPromiseLand\slides\lib\font\league_gothic-webfont.eot" />
+    <Content Include="Presentations\FromCallbackHellToTheJavaScriptPromiseLand\slides\lib\font\league_gothic-webfont.ttf" />
+    <Content Include="Presentations\FromCallbackHellToTheJavaScriptPromiseLand\slides\lib\font\league_gothic-webfont.woff" />
+    <Content Include="Presentations\FromCallbackHellToTheJavaScriptPromiseLand\slides\lib\font\league_gothic_license" />
+    <Content Include="Presentations\FromCallbackHellToTheJavaScriptPromiseLand\slides\LICENSE" />
+    <Content Include="Presentations\FromCallbackHellToTheJavaScriptPromiseLand\slides\package.json" />
+    <Content Include="Presentations\FromCallbackHellToTheJavaScriptPromiseLand\slides\plugin\markdown\example.md" />
+    <Content Include="Presentations\FromCallbackHellToTheJavaScriptPromiseLand\slides\README.md" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>
