@@ -103,7 +103,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
-    <Content Include="Presentations\FromCallbackHellToTheJavaScriptPromiseLand\Abstracts\20140204 - GR Dev Day 2014.txt" />
+    <None Include="Presentations\FromCallbackHellToTheJavaScriptPromiseLand\Abstracts\20140204 - GR Dev Day 2014.txt" />
     <Content Include="Presentations\FromCallbackHellToTheJavaScriptPromiseLand\demos\01-Callbacks.html" />
     <Content Include="Presentations\FromCallbackHellToTheJavaScriptPromiseLand\demos\02-Callbacks.html" />
     <Content Include="Presentations\FromCallbackHellToTheJavaScriptPromiseLand\demos\03-Promises.html" />
