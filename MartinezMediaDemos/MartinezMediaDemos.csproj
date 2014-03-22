@@ -134,7 +134,6 @@
     <Content Include="Presentations\From-Callback-Hell-to-the-JavaScript-Promise-Land\slides\css\theme\simple.css" />
     <Content Include="Presentations\From-Callback-Hell-to-the-JavaScript-Promise-Land\slides\css\theme\sky.css" />
     <Content Include="Presentations\From-Callback-Hell-to-the-JavaScript-Promise-Land\slides\css\theme\solarized.css" />
-    <Content Include="Presentations\From-Callback-Hell-to-the-JavaScript-Promise-Land\slides\Gruntfile.js" />
     <Content Include="Presentations\From-Callback-Hell-to-the-JavaScript-Promise-Land\slides\img\avatar.jpg" />
     <Content Include="Presentations\From-Callback-Hell-to-the-JavaScript-Promise-Land\slides\img\braces.jpg" />
     <Content Include="Presentations\From-Callback-Hell-to-the-JavaScript-Promise-Land\slides\img\demomockup.png" />
@@ -172,22 +171,6 @@
     <Content Include="Presentations\From-Callback-Hell-to-the-JavaScript-Promise-Land\slides\plugin\remotes\remotes.js" />
     <Content Include="Presentations\From-Callback-Hell-to-the-JavaScript-Promise-Land\slides\plugin\search\search.js" />
     <Content Include="Presentations\From-Callback-Hell-to-the-JavaScript-Promise-Land\slides\plugin\zoom-js\zoom.js" />
-    <Content Include="Presentations\From-Callback-Hell-to-the-JavaScript-Promise-Land\slides\test\examples\assets\image1.png" />
-    <Content Include="Presentations\From-Callback-Hell-to-the-JavaScript-Promise-Land\slides\test\examples\assets\image2.png" />
-    <Content Include="Presentations\From-Callback-Hell-to-the-JavaScript-Promise-Land\slides\test\examples\barebones.html" />
-    <Content Include="Presentations\From-Callback-Hell-to-the-JavaScript-Promise-Land\slides\test\examples\embedded-media.html" />
-    <Content Include="Presentations\From-Callback-Hell-to-the-JavaScript-Promise-Land\slides\test\examples\math.html" />
-    <Content Include="Presentations\From-Callback-Hell-to-the-JavaScript-Promise-Land\slides\test\examples\slide-backgrounds.html" />
-    <Content Include="Presentations\From-Callback-Hell-to-the-JavaScript-Promise-Land\slides\test\qunit-1.12.0.css" />
-    <Content Include="Presentations\From-Callback-Hell-to-the-JavaScript-Promise-Land\slides\test\qunit-1.12.0.js" />
-    <Content Include="Presentations\From-Callback-Hell-to-the-JavaScript-Promise-Land\slides\test\test-markdown-element-attributes.html" />
-    <Content Include="Presentations\From-Callback-Hell-to-the-JavaScript-Promise-Land\slides\test\test-markdown-element-attributes.js" />
-    <Content Include="Presentations\From-Callback-Hell-to-the-JavaScript-Promise-Land\slides\test\test-markdown-slide-attributes.html" />
-    <Content Include="Presentations\From-Callback-Hell-to-the-JavaScript-Promise-Land\slides\test\test-markdown-slide-attributes.js" />
-    <Content Include="Presentations\From-Callback-Hell-to-the-JavaScript-Promise-Land\slides\test\test-markdown.html" />
-    <Content Include="Presentations\From-Callback-Hell-to-the-JavaScript-Promise-Land\slides\test\test-markdown.js" />
-    <Content Include="Presentations\From-Callback-Hell-to-the-JavaScript-Promise-Land\slides\test\test.html" />
-    <Content Include="Presentations\From-Callback-Hell-to-the-JavaScript-Promise-Land\slides\test\test.js" />
     <Content Include="Presentations\index.html" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -221,10 +204,7 @@
     <Content Include="Presentations\From-Callback-Hell-to-the-JavaScript-Promise-Land\slides\lib\font\league_gothic-webfont.ttf" />
     <Content Include="Presentations\From-Callback-Hell-to-the-JavaScript-Promise-Land\slides\lib\font\league_gothic-webfont.woff" />
     <Content Include="Presentations\From-Callback-Hell-to-the-JavaScript-Promise-Land\slides\lib\font\league_gothic_license" />
-    <Content Include="Presentations\From-Callback-Hell-to-the-JavaScript-Promise-Land\slides\LICENSE" />
-    <Content Include="Presentations\From-Callback-Hell-to-the-JavaScript-Promise-Land\slides\package.json" />
     <Content Include="Presentations\From-Callback-Hell-to-the-JavaScript-Promise-Land\slides\plugin\markdown\example.md" />
-    <Content Include="Presentations\From-Callback-Hell-to-the-JavaScript-Promise-Land\slides\README.md" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
