@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+
+		<link rel="stylesheet" type="text/css" href="_/css/bootstrap.min.css">
+		<link rel="stylesheet" type="text/css" href="_/css/bootstrap-theme.min.css">
+		<link rel="stylesheet" type="text/css" href="_/css/style.css">
+
+		<title>Demo 02 - Anonymous Function Promises | From Callback Hell to the JavaScript “Promise” Land | Brandon Martinez</title>
+	</head>
+	<body>
+		<h1>Demo 02 - Anonymous Function Promises</h1>
+
+		<nav>
+			<button type="button" class="btn btn-primary" data-bind="event: { click: $root.refreshData }, enable: $root.CanModifyData">Refresh Data</button>
+			<button type="button" class="btn btn-danger" data-bind="event: { click: $root.clearData }, enable: $root.CanModifyData">Clear Data</button>
+			<button type="button" class="btn btn-success" data-bind="event: { click: $root.processData }, enable: $root.CanModifyData">Process!</button>
+		</nav>
+
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>Id</th>
+					<th>Command</th>
+					<th>Data</th>
+					<th>Generated At</th>
+					<th>Sent At</th>
+					<th>Processed At</th>
+					<th>Additional Information</th>
+				</tr>
+			</thead>
+			<!-- ko foreach: { data: $root.CommandSets, as: 'commandSet' } -->
+			<thead>
+				<tr>
+					<th colspan="7" data-bind="text: commandSet.Name"></th>
+				</tr>
+			</thead>
+			<tbody data-bind="foreach: { data: commandSet.Commands, as: 'command' }">
+				<tr data-bind="css: { info: command.Processing, success: command.Success, danger: command.Failed }">
+					<td data-bind="text: command.Id"></td>
+					<td data-bind="text: command.Command"></td>
+					<td data-bind="text: command.Data"></td>
+					<td data-bind="text: command.GeneratedAt"></td>
+					<td data-bind="text: command.SentAt"></td>
+					<td data-bind="text: command.ProcessedAt"></td>
+					<td data-bind="text: command.AdditionalInformation"></td>
+				</tr>
+			</tbody>
+			<!-- /ko -->
+		</table>
+
+		<!-- Scripts -->
+		<script type="text/JavaScript" src="_/js/q.js"></script>
+		<script type="text/JavaScript" src="_/js/jquery-2.1.0.min.js"></script>
+		<script type="text/JavaScript" src="_/js/knockout-3.1.0.js"></script>
+		<script type="text/JavaScript" src="_/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="_/js/CommandModel.js"></script>
+		<script type="text/JavaScript" src="_/js/02-Promises.js"></script>
+	</body>
+</html>

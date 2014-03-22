@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+
+		<title>From Callback Hell to the JavaScript “Promise” Land | Brandon Martinez</title>
+
+		<meta name="author" content="Brandon Martinez">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.min.css">
+		<link rel="stylesheet" href="css/theme/sky.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+		<script>
+			document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<h3>From Callback Hell to the JavaScript “Promise” Land</h3>
+					<p>
+						<small>Brandon Martinez | <a href="http://www.brandonmartinez.com/">brandonmartinez.com</a> | <a href="http://twitter.brandonmartinez.com">@brandonmartinez</a></small>
+					</p>
+				</section>
+
+				<section>
+					<h2>About Me</h2>
+
+					<img src="img/avatar.jpg" style="width: 300px; height: auto;" />
+					<img src="img/skylinelogo.png" style="width: 400px; height: auto; border: none; box-shadow: none;" />
+
+					<p>
+						<small>Brandon Martinez | <a href="http://www.brandonmartinez.com/">brandonmartinez.com</a> | <a href="http://twitter.brandonmartinez.com">@brandonmartinez</a></small>
+					</p>
+
+					<p>
+						<small>Skyline Technologies (We're Hiring!) | <a href="http://www.skylinetechnologies.com/">skylinetechnologies.com</a> | <a href="https://twitter.com/skylinetweets">@skylinetweets</a></small>
+					</p>
+				</section>
+
+				<section>
+                    <section>
+    					<h2>What's a Callback?</h2>
+    					<p>In JavaScript, functions are considered <em>first-class citizens</em>; they are able to be passed as arguments or stored in variables or fields.</p>
+                        <p><em>Callbacks</em> are functions that are passed as an argument to another function.</p>
+                        <pre><code data-trim class="javascript">
+function runThisFunction(myCallbackFunction) {
+    myCallbackFunction();
+}
+
+runThisFunction(function() {
+	console.log('Kind of useless, but I see your point.');
+});
+                        </code></pre>
+                    </section>
+                    <section>
+                    	<h3>Why Use a Callback?</h3>
+                        <ol>
+                            <li>You want to allow the calling code to encapsulate some logic that will be performed within the called function (e.g. an <em>onclick</em> handler).</li>
+                            <li>You want logic to be performed after an asynchronous operation (e.g. an AJAX request succeeds or fails).</li>
+                        </ol>
+                    </section>
+                    <section>
+    					<p>Here is a common example, passing an <em>anonymous</em> callback function to be used after the success of a jQuery AJAX request.</p>
+    					<pre><code data-trim class="javascript">
+$.ajax({
+    url: '/myapi/',
+    type: 'POST',
+    data: { Id: 123, Description: 'Call me back, bro!' },
+    success: function(data) {
+        // Our callback function; this will be executed
+        // after the async query is finished
+        console.log(data);
+        myData.push(data);
+    }
+});
+    						</code></pre>
+    						<p>That doesn't seem bad, does it? But what happens when things get more complex?</p>
+                    </section>
+				</section>
+
+				<section>
+					<section data-background="img/welcometocallbackhell.jpg">
+						<h1>Welcome to Callback Hell</h1>
+					</section>
+					<section>
+						<h3>First Stop, the <em>Pyramid of Doom</em></h3>
+						<p>Have you ever written code that looks like this?</p>
+						<pre><code data-trim class="javascript">
+$.ajax({
+    url: '/myapi/',
+    type: 'POST',
+    data: { Id: 123, Description: 'Call me back, bro!' },
+    success: function(returnedData) {
+        // Success! Time to call our next service
+        $.ajax({
+            url: '/mynextapi/',
+            type: 'POST',
+            data: returnedData,
+            success: function(data) {
+                $('#messages').animate({
+                    opacity: 0.25,
+                    left: "+=50",
+                    height: "toggle"
+                }, 5000, function() {
+                    setTimeout(function() {
+                        $(this).val('Finished!');
+                        // How did we get here???
+                    }, 1000);
+                });
+            }
+        });
+    }
+});
+						</code></pre>
+					</section>
+					<section>
+						<h3>The Pyramid of Doom</h3>
+						<p>Deep, intermingled heirachies of functions, often called asynchronously.</p>
+						<p>Scope is very difficult to track.</p>
+						<img src="img/braces.jpg" width="300" height="300" />
+						<p>Code maintainability SUCKS!</p>
+					</section>
+					<section>
+						<h3>Can't We Refactor?</h3>
+						<img src="img/goodnames.jpg" style="max-height: 600px; width: auto;" />
+					</section>
+					<section>
+						<h3>Can't We Refactor?</h3>
+						<p>Of course! Let's pull all of those anonymous functions into named functions. That will help, right?</p>
+						<pre><code data-trim class="javascript">
+
+function animateAfterFinalPosting(){
+    $('#messages').animate({
+        opacity: 0.25,
+        left: "+=50",
+        height: "toggle"
+    }, 5000, function() {
+        setTimeout(function() {
+            $(this).val('Finished!');
+        }, 1000);
+    });
+}
+
+function postInitialDataSuccess(returnedData) {
+    // Success! Time to call our next service
+    $.ajax({
+        url: '/mynextapi/',
+        type: 'POST',
+        data: returnedData,
+        success: animateAfterFinalPosting
+    });
+}
+
+function postInitialData(myData) {
+    $.ajax({
+        url: '/myapi/',
+        type: 'POST',
+        data: myData,
+        success: postInitialDataSuccess
+    });	
+}
+
+postInitialData({
+    Id: 123,
+    Description: "Let's dive in!"
+});
+						</code></pre>
+						<p>Better, right?</p>
+					</section>
+
+					<section>
+						<h3>Well…</h3>
+						<img src="img/functception.jpg" />
+					</section>
+
+					<section>
+						<h3>Can't We Refactor?</h3>
+						<p>Code has become more manageable, however:</p>
+						<ul>
+							<li>Functions are now coupled with their immediate child(ren).</li>
+							<li>Adding or removing pieces of the process can cause a ripple effect.</li>
+							<li>Following the business logic and process can become difficult (choose your own adventure, anyone?).</li>
+						</ul>
+						<h4>So what can we do?</h4>
+					</section>
+				</section>
+
+				<section>
+					<section data-background="img/promiseland.jpg">
+						<h1 style="color: white; text-shadow: 0 0 20px #000000;">To the "Promise" Land!</h1>
+					</section>
+
+					<section>
+						<h3>What's a Promise?</h3>
+						<p>First, a discalaimer:</p>
+						<p>Promises, or specifically the Promises/A+ standardization, are currently a proposed addition to the upcoming ECMAScript 6 additions to the JavaScript language. As such, they are <strong>not</strong> available in all browsers without using an additional library, like Q.js, or a polyfill.</p>
+						<p>For more information, I highly recommend reading the <a href="http://www.html5rocks.com/en/tutorials/es6/promises/" title="JavaScript Promises at HTML5 Rocks" target="_blank">JavaScript Promises article at HTML5 Rocks (http://bmtn.us/1ikMPTc)</a>.</p>
+					</section>
+
+					<section>
+						<h3>What's a Promise?</h3>
+						<p>A <em>promise</em> is an abstraction over asynchronous functions and tasks in JavaScript.</p>
+						<p>A promise is has a <em>then</em> function, allowing you to chain multiple promises together.</p>
+						<p>Promises can have four states: fulfilled, rejected, pending, or settled.</p>
+					</section>
+
+					<section>
+						<p>A small sample of a promise chain. We're using anonymous functions here, but notice how much more readable the code is. Not only that, but it's linear!</p>
+						<pre><code data-trim class="javascript">
+// Using Q, basic concepts apply to Promises/A+
+Q({
+    Id: 123,
+    Description: "Let's dive in!"
+}).then(function(data) {
+    // jQuery isn't standard-compliant, wrap in a proper promise and return
+    return Q($.ajax({
+        url: '/myapi/',
+        type: 'POST',
+        data: data
+    }));
+}).then(function(returnedData) {
+    return Q($.ajax({
+        url: '/mynextapi/',
+        type: 'POST',
+        data: returnedData
+    }));
+}).then(function(nextReturnedData) {
+        $('#messages').animate({
+        opacity: 0.25,
+        left: "+=50",
+        height: "toggle"
+    }, 5000, function() {
+        setTimeout(function() {
+            $(this).val('Finished!');
+        }, 1000);
+    });
+}).catch(function(error) {
+    // Easy error handling!
+    console.log(error);
+});
+						</code></pre>
+					</section>
+
+					<section>
+						<p>Now let's move our anonymous functions into their named counterparts.</p>
+						<pre><code data-trim class="javascript">
+function sendFirstDataPost(data) {
+    // jQuery isn't standard-compliant, wrap in a proper promise and return
+    return Q($.ajax({
+        url: '/myapi/',
+        type: 'POST',
+        data: data
+    }));
+}
+
+function sendSecondDataPost(returnedData) {
+    return Q($.ajax({
+        url: '/mynextapi/',
+        type: 'POST',
+        data: returnedData
+    }));
+}
+
+// note that we don't _have_ to provide the
+// previously returned data; javascript lets
+// us ignore arguments in callbacks
+function animateMessageBox() {
+	$('#messages').animate({
+        opacity: 0.25,
+        left: "+=50",
+        height: "toggle"
+    }, 5000, function() {
+        setTimeout(function() {
+            $(this).val('Finished!');
+        }, 1000);
+    });
+}
+
+function errorHandler(error) {
+    // Easy error handling! This method could
+    // potentially be reused in any promise chain
+    console.log(error);
+}
+
+// Using Q, basic concepts apply to Promises/A+
+Q({
+        Id: 123,
+        Description: "Let's dive in!"
+    })
+    .then(sendFirstDataPost)
+    .then(sendSecondDataPost)
+    .then(animateMessageBox)
+    .catch(errorHandler);
+						</code></pre>
+					</section>
+
+					<section>
+						<h3>That Easy?</h3>
+						<img src="img/easybutton.png" style="width: 300px; height: auto; border: none; box-shadow: none;" />
+						<h1>Yes!</h1>
+					</section>
+
+					<section>
+						<h3>How Do Promises<br />Improve My Code?</h3>
+						<ul>
+							<li>"Flattens" the chain</li>
+							<li>Promotes linear, workflow-oriented business logic</li>
+							<li>Promises can return promises, which can each be composed of their own chains (example soon).</li>
+							<li>"Thenable" functions are mostly atomic, taking data in and sending data out (greatly reducing scope issues).</li>
+							<li>Flexibility!</li>
+						</ul>
+					</section>
+				</section>
+
+				<section>
+					<section>
+						<h2>Demos</h2>
+						<p>We've been tasked with creating a lightweight web interface for retrieving and processing <em>CommandSets</em> from a web API:</p>
+						<img src="img/demomockup.png" />
+					</section>
+					<section>
+						<h3>Core Specifications</h3>
+						<ul>
+							<li>On page load, retrieve a list of <em>CommandSets</em> from a web API, displaying them on the page.</li>
+							<li>The user is allowed to refresh the current data to retrieve the next batch.</li>
+							<li>The data can be cleared.</li>
+							<li>Processing the data send the commands individually to a web API, returning a success or failure result (displaying any additional information if given).</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>Demo 1</h2>
+						<p>Using anonymous callbacks, we'll send all commands to the web API and wait for a response.</p>
+						<h2><a href="../demos/01-Callbacks.html" target="_demos">Launch the Demo</a></h2>
+					</section>
+
+					<section>
+						<h2>Demo 1</h2>
+						<h3>Recap</h3>
+						<ul>
+							<li>The "quick and dirty" approach to processing.</li>
+							<li>No (easy) way to track when <strong>all</strong> requests are complete.</li>
+							<li>Possibility of scope issues (see inline closure in source).</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>Demo 2</h2>
+						<p>Taking the previous example and breaking it into a promise-style chain, we send all commands to a web API and wait for a response.</p>
+					</section>
+
+					<section>
+						<h2>Demo 2</h2>
+						<h3>Additional Specifications</h3>
+						<p>In addition to the core specifications:</p>
+						<ul>
+							<li>The user cannot initiate another batch process until all commands have returned.</li>
+						</ul>
+						<h2><a href="../demos/02-Promises.html" target="_demos">Launch the Demo</a></h2>
+					</section>
+
+					<section>
+						<h2>Demo 2</h2>
+						<h3>Recap</h3>
+						<ul>
+							<li>Each command set is easily flattened into multiple promise chains for each command.</li>
+							<li>Returning the command promise chains to the main chain allows us to track when all child chains complete.</li>
+							<li>Each piece of our workflow is linear! This-then-this-then-this-etc.</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>Demo 3</h2>
+						<p>Using named callbacks to help clean-up the code from the first demo and add additional functionality.</p>
+					</section>
+
+					<section>
+						<h2>Demo 3</h2>
+						<h3>Additional Specifications</h3>
+						<p>In addition to the previous specifications:</p>
+						<ul>
+							<li>The command sets must have their commands processed in order, waiting for the previous to be completed. If the previous failed, stop that command set from continuing.</li>
+							<li>The user can stop processing at any time, blocking any <em>new</em> commands from being sent.</li>
+						</ul>
+						<h2><a href="../demos/03-Callbacks.html" target="_demos">Launch the Demo</a></h2>
+					</section>
+
+					<section>
+						<h2>Demo 3</h2>
+						<h3>Recap</h3>
+						<ul>
+							<li>While cleaner than purely anonymous functions, it can still be difficult to see where the flow of the application goes in code.</li>
+							<li>In order to get "synchronous" AJAX, it requires passing current progress through the entire chain.</li>
+							<li>Tracking when the entire process finishes requires a counter and a comparison at the end of every child chain.</li>
+						</ul>
+					</section>
+
+					<section>
+						<h2>Demo 4</h2>
+						<p>Using the previous demo as a base, we've rewritten the logic to produce promise chains. Additionally, we show how easy it is to control the flow of child chains, as well as knowing when the entire process is finished.</p>
+						<h2><a href="../demos/04-Promises.html" target="_demos">Launch the Demo</a></h2>
+					</section>
+
+					<section>
+						<h2>Demo 4</h2>
+						<h3>Recap</h3>
+						<ul>
+							<li>While a more complicated example, it shows how powerful <em>chaining</em> promises can be, especially when compared to <em>injecting</em> callbacks.</li>
+							<li>The ability to dynamically create child sequences, and then to wait for all fo them to be fulfilled, is invaluable when compared to the callback-based approach.</li>
+						</ul>
+					</section>
+				</section>
+
+				<section>
+					<h2>How Can I Start Making Promises?</h2>
+					<p>While browsers continue to add and support the full Promises/A+ standard, you can still enjoy them in most ECMAScript 5 browers.</p>
+					<ul>
+						<li>Q</li>
+						<li>RSVP.js</li>
+						<li>when</li>
+					</ul>
+					<p>The <a href="http://www.html5rocks.com/en/tutorials/es6/promises/" title="JavaScript Promises at HTML5 Rocks" target="_blank">JavaScript Promises article at HTML5 Rocks (http://bmtn.us/1ikMPTc)</a> has a polyfill that can be used to support older browsers, as well (based on RSVP.js).</p>
+				</section>
+
+				<section>
+					<h1>Questions?</h1>
+				</section>
+
+				<section>
+					<h1>The End.</h1>
+					<h2><em>Promise</em></h2>
+					<p>http://bmtn.us/PmAJiK</p>
+					<img src="http://bmtn.us/PmAJiK.qrcode" />
+				</section>
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+
+		<script>
+
+			Reveal.initialize({
+				// Display controls in the bottom right corner
+				controls: true,
+
+				// Display a presentation progress bar
+				progress: true,
+
+				// Display the page number of the current slide
+				slideNumber: false,
+
+				// Push each slide change to the browser history
+				history: true,
+
+				// Enable keyboard shortcuts for navigation
+				keyboard: true,
+
+				// Enable the slide overview mode
+				overview: true,
+
+				// Vertical centering of slides
+				center: true,
+
+				// Enables touch navigation on devices with touch input
+				touch: true,
+
+				// Loop the presentation
+				loop: false,
+
+				// Change the presentation direction to be RTL
+				rtl: false,
+
+				// Turns fragments on and off globally
+				fragments: true,
+
+				// Flags if the presentation is running in an embedded mode,
+				// i.e. contained within a limited portion of the screen
+				embedded: false,
+
+				// Number of milliseconds between automatically proceeding to the
+				// next slide, disabled when set to 0, this value can be overwritten
+				// by using a data-autoslide attribute on your slides
+				autoSlide: 0,
+
+				// Stop auto-sliding after user input
+				autoSlideStoppable: true,
+
+				// Enable slide navigation via mouse wheel
+				mouseWheel: false,
+
+				// Hides the address bar on mobile devices
+				hideAddressBar: true,
+
+				// Opens links in an iframe preview overlay
+				previewLinks: false,
+
+				// Transition style
+				transition: 'linear', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Transition speed
+				transitionSpeed: 'default', // default/fast/slow
+
+				// Transition style for full page slide backgrounds
+				backgroundTransition: 'default', // default/none/slide/concave/convex/zoom
+
+				// Number of slides away from the current that are visible
+				viewDistance: 3,
+
+				// Parallax background image
+				// parallaxBackgroundImage: '', // e.g. "'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg'"
+
+				// // Parallax background size
+				// parallaxBackgroundSize: '', // CSS syntax, e.g. "2100px 900px"
+
+				// theme: 'sky', // available themes are in /css/theme
+
+				// Parallax scrolling
+				// parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+				// parallaxBackgroundSize: '2100px 900px',
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() {
+						hljs.initHighlightingOnLoad();
+					} },
+					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>

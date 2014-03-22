@@ -1,0 +1,20 @@
+GR Dev Day Speaker Application (http://grdevday.org/Speakers.aspx)
+
+Bio:
+
+Brandon is a software engineer working remotely in Ludington, Michigan for Skyline Technologies out of Appleton, Wisconsin. Specializing in .NET and Web Development, he has been honing his skills since junior high in both Microsoft and open source development.
+
+When he’s not coding, he enjoys spending his time with his wife and son, practicing his photography skills, playing guitar, or drinking a fresh cup of coffee.
+
+Session
+
+Title: From Callback Hell to the JavaScript “Promise” Land
+Track: Web/Rich Internet Applications
+Level: Intermediate
+Length: 50-60 min
+
+Abstract:
+
+We’ve all been there: buried 15 layers deep in JavaScript functions wondering where in the Callback Hell we are. How did we get here? Handling asynchronous code forces us to build an unmanageable stack of function calls, often leaving us buried beneath them. Is there a better way to handle this? Luckily, there is; I promise.
+
+JavaScript promises give us an elegant way to handle asynchronous code. Through the power of its “then” method, we’re able to chain, instead of stack, our logic together. We’ll dive into the core of promises, as well as how to break apart common Callback Hell scenarios into beautiful method chains that’d make the most experienced developer shed a tear.
