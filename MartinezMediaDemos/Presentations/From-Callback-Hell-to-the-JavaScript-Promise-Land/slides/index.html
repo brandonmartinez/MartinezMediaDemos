@@ -34,30 +34,30 @@
 
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
-				<section>
+				<section data-background="img/skyline-background-blue.png">
 					<h3>From Callback Hell to the JavaScript “Promise” Land</h3>
 					<p>
 						<small>Brandon Martinez | <a href="http://www.brandonmartinez.com/">brandonmartinez.com</a> | <a href="http://twitter.brandonmartinez.com">@brandonmartinez</a></small>
 					</p>
+					<img src="img/skyline-logo-white.gif" style="width: 240px; height: auto; border: none; box-shadow: none;" />
 				</section>
 
-				<section>
+				<section data-background="img/skyline-background-white.png">
 					<h2>About Me</h2>
 
 					<img src="img/avatar.jpg" style="width: 300px; height: auto;" />
-					<img src="img/skylinelogo.png" style="width: 400px; height: auto; border: none; box-shadow: none;" />
 
 					<p>
 						<small>Brandon Martinez | <a href="http://www.brandonmartinez.com/">brandonmartinez.com</a> | <a href="http://twitter.brandonmartinez.com">@brandonmartinez</a></small>
 					</p>
 
 					<p>
-						<small>Skyline Technologies (We're Hiring!) | <a href="http://www.skylinetechnologies.com/">skylinetechnologies.com</a> | <a href="https://twitter.com/skylinetweets">@skylinetweets</a></small>
+						<small>Skyline Technologies | <a href="http://www.skylinetechnologies.com/">skylinetechnologies.com</a> | <a href="https://twitter.com/skylinetweets">@skylinetweets</a></small>
 					</p>
 				</section>
 
-				<section>
-                    <section>
+				<section data-background="img/skyline-background-white.png">
+                    <section data-background="img/skyline-background-white.png">
     					<h2>What's a Callback?</h2>
     					<p>In JavaScript, functions are considered <em>first-class citizens</em>; they are able to be passed as arguments or stored in variables or fields.</p>
                         <p><em>Callbacks</em> are functions that are passed as an argument to another function.</p>
@@ -71,14 +71,14 @@ runThisFunction(function() {
 });
                         </code></pre>
                     </section>
-                    <section>
+                    <section data-background="img/skyline-background-white.png">
                     	<h3>Why Use a Callback?</h3>
                         <ol>
                             <li>You want to allow the calling code to encapsulate some logic that will be performed within the called function (e.g. an <em>onclick</em> handler).</li>
                             <li>You want logic to be performed after an asynchronous operation (e.g. an AJAX request succeeds or fails).</li>
                         </ol>
                     </section>
-                    <section>
+                    <section data-background="img/skyline-background-white.png">
     					<p>Here is a common example, passing an <em>anonymous</em> callback function to be used after the success of a jQuery AJAX request.</p>
     					<pre><code data-trim class="javascript">
 $.ajax({
@@ -97,11 +97,11 @@ $.ajax({
                     </section>
 				</section>
 
-				<section>
+				<section data-background="img/skyline-background-white.png">
 					<section data-background="img/welcometocallbackhell.jpg">
 						<h1>Welcome to Callback Hell</h1>
 					</section>
-					<section>
+					<section data-background="img/skyline-background-white.png">
 						<h3>First Stop, the <em>Pyramid of Doom</em></h3>
 						<p>Have you ever written code that looks like this?</p>
 						<pre><code data-trim class="javascript">
@@ -132,18 +132,18 @@ $.ajax({
 });
 						</code></pre>
 					</section>
-					<section>
+					<section data-background="img/skyline-background-white.png">
 						<h3>The Pyramid of Doom</h3>
 						<p>Deep, intermingled heirachies of functions, often called asynchronously.</p>
 						<p>Scope is very difficult to track.</p>
 						<img src="img/braces.jpg" width="300" height="300" />
 						<p>Code maintainability SUCKS!</p>
 					</section>
-					<section>
+					<section data-background="img/skyline-background-white.png">
 						<h3>Can't We Refactor?</h3>
 						<img src="img/goodnames.jpg" style="max-height: 600px; width: auto;" />
 					</section>
-					<section>
+					<section data-background="img/skyline-background-white.png">
 						<h3>Can't We Refactor?</h3>
 						<p>Of course! Let's pull all of those anonymous functions into named functions. That will help, right?</p>
 						<pre><code data-trim class="javascript">
@@ -187,12 +187,12 @@ postInitialData({
 						<p>Better, right?</p>
 					</section>
 
-					<section>
+					<section data-background="img/skyline-background-white.png">
 						<h3>Well…</h3>
 						<img src="img/functception.jpg" />
 					</section>
 
-					<section>
+					<section data-background="img/skyline-background-white.png">
 						<h3>Can't We Refactor?</h3>
 						<p>Code has become more manageable, however:</p>
 						<ul>
@@ -204,26 +204,26 @@ postInitialData({
 					</section>
 				</section>
 
-				<section>
+				<section data-background="img/skyline-background-white.png">
 					<section data-background="img/promiseland.jpg">
 						<h1 style="color: white; text-shadow: 0 0 20px #000000;">To the "Promise" Land!</h1>
 					</section>
 
-					<section>
+					<section data-background="img/skyline-background-white.png">
 						<h3>What's a Promise?</h3>
 						<p>First, a discalaimer:</p>
 						<p>Promises, or specifically the Promises/A+ standardization, are currently a proposed addition to the upcoming ECMAScript 6 additions to the JavaScript language. As such, they are <strong>not</strong> available in all browsers without using an additional library, like Q.js, or a polyfill.</p>
 						<p>For more information, I highly recommend reading the <a href="http://www.html5rocks.com/en/tutorials/es6/promises/" title="JavaScript Promises at HTML5 Rocks" target="_blank">JavaScript Promises article at HTML5 Rocks (http://bmtn.us/1ikMPTc)</a>.</p>
 					</section>
 
-					<section>
+					<section data-background="img/skyline-background-white.png">
 						<h3>What's a Promise?</h3>
 						<p>A <em>promise</em> is an abstraction over asynchronous functions and tasks in JavaScript.</p>
 						<p>A promise is has a <em>then</em> function, allowing you to chain multiple promises together.</p>
 						<p>Promises can have four states: fulfilled, rejected, pending, or settled.</p>
 					</section>
 
-					<section>
+					<section data-background="img/skyline-background-white.png">
 						<p>A small sample of a promise chain. We're using anonymous functions here, but notice how much more readable the code is. Not only that, but it's linear!</p>
 						<pre><code data-trim class="javascript">
 // Using Q, basic concepts apply to Promises/A+
@@ -260,7 +260,7 @@ Q({
 						</code></pre>
 					</section>
 
-					<section>
+					<section data-background="img/skyline-background-white.png">
 						<p>Now let's move our anonymous functions into their named counterparts.</p>
 						<pre><code data-trim class="javascript">
 function sendFirstDataPost(data) {
@@ -313,13 +313,13 @@ Q({
 						</code></pre>
 					</section>
 
-					<section>
+					<section data-background="img/skyline-background-white.png">
 						<h3>That Easy?</h3>
 						<img src="img/easybutton.png" style="width: 300px; height: auto; border: none; box-shadow: none;" />
 						<h1>Yes!</h1>
 					</section>
 
-					<section>
+					<section data-background="img/skyline-background-white.png">
 						<h3>How Do Promises<br />Improve My Code?</h3>
 						<ul>
 							<li>"Flattens" the chain</li>
@@ -331,13 +331,13 @@ Q({
 					</section>
 				</section>
 
-				<section>
-					<section>
+				<section data-background="img/skyline-background-white.png">
+					<section data-background="img/skyline-background-white.png">
 						<h2>Demos</h2>
 						<p>We've been tasked with creating a lightweight web interface for retrieving and processing <em>CommandSets</em> from a web API:</p>
 						<img src="img/demomockup.png" />
 					</section>
-					<section>
+					<section data-background="img/skyline-background-white.png">
 						<h3>Core Specifications</h3>
 						<ul>
 							<li>On page load, retrieve a list of <em>CommandSets</em> from a web API, displaying them on the page.</li>
@@ -347,13 +347,13 @@ Q({
 						</ul>
 					</section>
 
-					<section>
+					<section data-background="img/skyline-background-white.png">
 						<h2>Demo 1</h2>
 						<p>Using anonymous callbacks, we'll send all commands to the web API and wait for a response.</p>
 						<h2><a href="../demos/01-Callbacks.html" target="_demos">Launch the Demo</a></h2>
 					</section>
 
-					<section>
+					<section data-background="img/skyline-background-white.png">
 						<h2>Demo 1</h2>
 						<h3>Recap</h3>
 						<ul>
@@ -363,12 +363,12 @@ Q({
 						</ul>
 					</section>
 
-					<section>
+					<section data-background="img/skyline-background-white.png">
 						<h2>Demo 2</h2>
 						<p>Taking the previous example and breaking it into a promise-style chain, we send all commands to a web API and wait for a response.</p>
 					</section>
 
-					<section>
+					<section data-background="img/skyline-background-white.png">
 						<h2>Demo 2</h2>
 						<h3>Additional Specifications</h3>
 						<p>In addition to the core specifications:</p>
@@ -378,7 +378,7 @@ Q({
 						<h2><a href="../demos/02-Promises.html" target="_demos">Launch the Demo</a></h2>
 					</section>
 
-					<section>
+					<section data-background="img/skyline-background-white.png">
 						<h2>Demo 2</h2>
 						<h3>Recap</h3>
 						<ul>
@@ -388,12 +388,12 @@ Q({
 						</ul>
 					</section>
 
-					<section>
+					<section data-background="img/skyline-background-white.png">
 						<h2>Demo 3</h2>
 						<p>Using named callbacks to help clean-up the code from the first demo and add additional functionality.</p>
 					</section>
 
-					<section>
+					<section data-background="img/skyline-background-white.png">
 						<h2>Demo 3</h2>
 						<h3>Additional Specifications</h3>
 						<p>In addition to the previous specifications:</p>
@@ -404,7 +404,7 @@ Q({
 						<h2><a href="../demos/03-Callbacks.html" target="_demos">Launch the Demo</a></h2>
 					</section>
 
-					<section>
+					<section data-background="img/skyline-background-white.png">
 						<h2>Demo 3</h2>
 						<h3>Recap</h3>
 						<ul>
@@ -414,13 +414,13 @@ Q({
 						</ul>
 					</section>
 
-					<section>
+					<section data-background="img/skyline-background-white.png">
 						<h2>Demo 4</h2>
 						<p>Using the previous demo as a base, we've rewritten the logic to produce promise chains. Additionally, we show how easy it is to control the flow of child chains, as well as knowing when the entire process is finished.</p>
 						<h2><a href="../demos/04-Promises.html" target="_demos">Launch the Demo</a></h2>
 					</section>
 
-					<section>
+					<section data-background="img/skyline-background-white.png">
 						<h2>Demo 4</h2>
 						<h3>Recap</h3>
 						<ul>
@@ -430,7 +430,7 @@ Q({
 					</section>
 				</section>
 
-				<section>
+				<section data-background="img/skyline-background-white.png">
 					<h2>How Can I Start Making Promises?</h2>
 					<p>While browsers continue to add and support the full Promises/A+ standard, you can still enjoy them in most ECMAScript 5 browers.</p>
 					<ul>
@@ -441,11 +441,11 @@ Q({
 					<p>The <a href="http://www.html5rocks.com/en/tutorials/es6/promises/" title="JavaScript Promises at HTML5 Rocks" target="_blank">JavaScript Promises article at HTML5 Rocks (http://bmtn.us/1ikMPTc)</a> has a polyfill that can be used to support older browsers, as well (based on RSVP.js).</p>
 				</section>
 
-				<section>
+				<section data-background="img/skyline-background-white.png">
 					<h1>Questions?</h1>
 				</section>
 
-				<section>
+				<section data-background="img/skyline-background-white.png">
 					<h1>The End.</h1>
 					<h2><em>Promise</em></h2>
 					<p>http://bmtn.us/PmAJiK</p>
