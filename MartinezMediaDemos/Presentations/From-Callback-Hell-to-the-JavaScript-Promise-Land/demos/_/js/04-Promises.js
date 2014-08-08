@@ -155,7 +155,7 @@ function DemoViewModel() {
 	};
 
 	vm.processData = function() {
-		return Promise.resolve(function() {
+		return Q.fcall(function() {
 				vm.ProcessingData(true);
 
 				return vm.CommandSets();
