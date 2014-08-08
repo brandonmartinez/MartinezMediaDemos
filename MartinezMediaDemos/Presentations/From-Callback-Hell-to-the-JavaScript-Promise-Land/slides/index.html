@@ -211,15 +211,14 @@ postInitialData({
 
 					<section data-background="img/skyline-background-white.png">
 						<h3>What's a Promise?</h3>
-						<p>First, a discalaimer:</p>
-						<p>Promises, or specifically the Promises/A+ standardization, are currently a proposed addition to the upcoming ECMAScript 6 additions to the JavaScript language. As such, they are <strong>not</strong> available in all browsers without using an additional library, like Q.js, or a polyfill.</p>
+						<p><strong>First, a discalaimer:</strong> Promises, or specifically the Promises/A+ standardization, are currently available in JavaScript's currently standardizing ECMAScript 6 additions. As such, they are <strong>not</strong> available in all browsers without using an additional library, like Q.js, or a polyfill.</p>
 						<p>For more information, I highly recommend reading the <a href="http://www.html5rocks.com/en/tutorials/es6/promises/" title="JavaScript Promises at HTML5 Rocks" target="_blank">JavaScript Promises article at HTML5 Rocks (http://bmtn.us/1ikMPTc)</a>.</p>
 					</section>
 
 					<section data-background="img/skyline-background-white.png">
 						<h3>What's a Promise?</h3>
 						<p>A <em>promise</em> is an abstraction over asynchronous functions and tasks in JavaScript.</p>
-						<p>A promise is has a <em>then</em> function, allowing you to chain multiple promises together.</p>
+						<p>A promise has a <em>then</em> function, allowing you to chain multiple promises together.</p>
 						<p>Promises can have four states: fulfilled, rejected, pending, or settled.</p>
 					</section>
 
@@ -430,15 +429,34 @@ Q({
 					</section>
 				</section>
 
-				<section data-background="img/skyline-background-white.png">
-					<h2>How Can I Start Making Promises?</h2>
-					<p>While browsers continue to add and support the full Promises/A+ standard, you can still enjoy them in most ECMAScript 5 browers.</p>
-					<ul>
-						<li>Q</li>
-						<li>RSVP.js</li>
-						<li>when</li>
-					</ul>
-					<p>The <a href="http://www.html5rocks.com/en/tutorials/es6/promises/" title="JavaScript Promises at HTML5 Rocks" target="_blank">JavaScript Promises article at HTML5 Rocks (http://bmtn.us/1ikMPTc)</a> has a polyfill that can be used to support older browsers, as well (based on RSVP.js).</p>
+				<section>
+					<section data-background="img/skyline-background-white.png">
+						<h2>How Can I Start Making Promises?</h2>
+						<p>While browsers continue to add and support the full Promises/A+ standard, you can still enjoy them in most ECMAScript 5 browers.</p>
+						<ul>
+							<li>Q</li>
+							<li>RSVP.js</li>
+							<li>when</li>
+						</ul>
+					</section>
+					<section data-background="img/skyline-background-white.png">
+						<h2>But I want to use the standard!</h2>
+
+						<p>The <a href="http://www.html5rocks.com/en/tutorials/es6/promises/" title="JavaScript Promises at HTML5 Rocks" target="_blank">JavaScript Promises article at HTML5 Rocks (http://bmtn.us/1ikMPTc)</a> has a polyfill that can be used to support older browsers, as well (based on RSVP.js).</p>
+					</section>
+					<section data-background="img/skyline-background-white.png">
+						<h2>But I want to use the standard!</h2>
+
+						<img src="img/caniuse.png" style="max-height: 300px; width: auto;" />
+
+						<p>To see if your favorite browser supports the Promise standard, visit <a href="http://caniuse.com/promises" title="Can I use Promises" target="_blank">caniuse.com/promises</a>.</p>
+					</section>
+
+					<section data-background="img/skyline-background-white.png">
+						<h2>Demo 5</h2>
+						<p>The same as <a href="../demos/04-Promises.html" target="_demos">Demo 4</a>, just using native Promises (no polyfill, so check your browser support!).</p>
+						<h2><a href="../demos/05-NativePromises.html" target="_demos">Launch the Demo</a></h2>
+					</section>
 				</section>
 
 				<section data-background="img/skyline-background-white.png">

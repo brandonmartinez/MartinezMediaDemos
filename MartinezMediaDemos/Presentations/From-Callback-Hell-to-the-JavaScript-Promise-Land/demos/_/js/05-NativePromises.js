@@ -66,7 +66,7 @@ function DemoViewModel() {
 		command.Processing(true);
 		command.SentAt(new Date());
 
-		return Q($.ajax({
+		return Promise.resolve($.ajax({
 					url: commandsUri,
 					type: 'POST',
 					dataType: 'json',
@@ -112,7 +112,7 @@ function DemoViewModel() {
 							return command();
 						})
 						.then(postAndValidateCommandResponse);
-					}, Q())
+					}, Promise.resolve())
 				.catch(function(err) {
 					console.log(err);
 					throw err;
@@ -122,7 +122,7 @@ function DemoViewModel() {
 		});
 
 		// Run promise chains at the same time
-		return Q.all(promises);
+		return Promise.all(promises);
 	}
 
 	// Public Functions
@@ -138,10 +138,8 @@ function DemoViewModel() {
 	};
 
 	vm.refreshData = function() {
-		return Q(vm.RetrievingData(true))
-			.then(function() {
-				return Q($.get(commandsUri));
-			})
+		vm.RetrievingData(true);
+		return Promise.resolve($.get(commandsUri))
 			.then(processRetrievedCommandSets)
 			.then(function(commandSets) {
 				return vm.CommandSets(commandSets);
@@ -155,14 +153,15 @@ function DemoViewModel() {
 	};
 
 	vm.processData = function() {
-		return Promise.resolve(function() {
+		return Promise.resolve()
+			.then(function() {
 				vm.ProcessingData(true);
 
 				return vm.CommandSets();
 			})
 			.then(resetCommandStatuses)
 			.then(processCommandSets)
-			.then(function() {
+			.then(function(test) {
 				vm.ProcessingData(false);
 			}, function(err) {
 				console.log(err);
