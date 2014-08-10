@@ -108,6 +108,7 @@
     <Content Include="Presentations\From-Callback-Hell-to-the-JavaScript-Promise-Land\demos\02-Promises.html" />
     <Content Include="Presentations\From-Callback-Hell-to-the-JavaScript-Promise-Land\demos\03-Callbacks.html" />
     <Content Include="Presentations\From-Callback-Hell-to-the-JavaScript-Promise-Land\demos\04-Promises.html" />
+    <Content Include="Presentations\From-Callback-Hell-to-the-JavaScript-Promise-Land\demos\05-NativePromises.html" />
     <Content Include="Presentations\From-Callback-Hell-to-the-JavaScript-Promise-Land\demos\_\css\bootstrap-theme.min.css" />
     <Content Include="Presentations\From-Callback-Hell-to-the-JavaScript-Promise-Land\demos\_\css\bootstrap.min.css" />
     <Content Include="Presentations\From-Callback-Hell-to-the-JavaScript-Promise-Land\demos\_\css\style.css" />
@@ -116,6 +117,7 @@
     <Content Include="Presentations\From-Callback-Hell-to-the-JavaScript-Promise-Land\demos\_\js\02-Promises.js" />
     <Content Include="Presentations\From-Callback-Hell-to-the-JavaScript-Promise-Land\demos\_\js\03-Callbacks.js" />
     <Content Include="Presentations\From-Callback-Hell-to-the-JavaScript-Promise-Land\demos\_\js\04-Promises.js" />
+    <Content Include="Presentations\From-Callback-Hell-to-the-JavaScript-Promise-Land\demos\_\js\05-NativePromises.js" />
     <Content Include="Presentations\From-Callback-Hell-to-the-JavaScript-Promise-Land\demos\_\js\bootstrap.min.js" />
     <Content Include="Presentations\From-Callback-Hell-to-the-JavaScript-Promise-Land\demos\_\js\CommandModel.js" />
     <Content Include="Presentations\From-Callback-Hell-to-the-JavaScript-Promise-Land\demos\_\js\jquery-2.1.0.min.js" />
@@ -136,12 +138,17 @@
     <Content Include="Presentations\From-Callback-Hell-to-the-JavaScript-Promise-Land\slides\css\theme\solarized.css" />
     <Content Include="Presentations\From-Callback-Hell-to-the-JavaScript-Promise-Land\slides\img\avatar.jpg" />
     <Content Include="Presentations\From-Callback-Hell-to-the-JavaScript-Promise-Land\slides\img\braces.jpg" />
+    <Content Include="Presentations\From-Callback-Hell-to-the-JavaScript-Promise-Land\slides\img\caniuse.png" />
     <Content Include="Presentations\From-Callback-Hell-to-the-JavaScript-Promise-Land\slides\img\demomockup.png" />
     <Content Include="Presentations\From-Callback-Hell-to-the-JavaScript-Promise-Land\slides\img\easybutton.png" />
     <Content Include="Presentations\From-Callback-Hell-to-the-JavaScript-Promise-Land\slides\img\functception.jpg" />
     <Content Include="Presentations\From-Callback-Hell-to-the-JavaScript-Promise-Land\slides\img\goodnames.jpg" />
     <Content Include="Presentations\From-Callback-Hell-to-the-JavaScript-Promise-Land\slides\img\promiseland.jpg" />
-    <Content Include="Presentations\From-Callback-Hell-to-the-JavaScript-Promise-Land\slides\img\skylinelogo.png" />
+    <Content Include="Presentations\From-Callback-Hell-to-the-JavaScript-Promise-Land\slides\img\q-vs-native-diff.png" />
+    <Content Include="Presentations\From-Callback-Hell-to-the-JavaScript-Promise-Land\slides\img\skyline-background-blue.png" />
+    <Content Include="Presentations\From-Callback-Hell-to-the-JavaScript-Promise-Land\slides\img\skyline-background-white.png" />
+    <Content Include="Presentations\From-Callback-Hell-to-the-JavaScript-Promise-Land\slides\img\skyline-logo-color.png" />
+    <Content Include="Presentations\From-Callback-Hell-to-the-JavaScript-Promise-Land\slides\img\skyline-logo-white.gif" />
     <Content Include="Presentations\From-Callback-Hell-to-the-JavaScript-Promise-Land\slides\img\welcometocallbackhell.jpg" />
     <Content Include="Presentations\From-Callback-Hell-to-the-JavaScript-Promise-Land\slides\index.html" />
     <Content Include="Presentations\From-Callback-Hell-to-the-JavaScript-Promise-Land\slides\js\reveal.js" />
