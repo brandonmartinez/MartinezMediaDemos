@@ -218,7 +218,8 @@ postInitialData({
 					<section data-background="img/skyline-background-white.png">
 						<h3>What's a Promise?</h3>
 						<p>A <em>promise</em> is an abstraction over asynchronous functions and tasks in JavaScript.</p>
-						<p>A promise has a <em>then</em> function, allowing you to chain multiple promises together.</p>
+						<p>At the minimum, a promise is a JavaScript object with a <em>then</em> function.</p>
+						<p>The <em>then</em> function returns a fullfilled value or throws an exception. The former allows you to chain multiple promises together (fluent-style).</p>
 						<p>Promises can have four states: fulfilled, rejected, pending, or settled.</p>
 					</section>
 
