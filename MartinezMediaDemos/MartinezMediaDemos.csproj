@@ -145,6 +145,7 @@
     <Content Include="Presentations\From-Callback-Hell-to-the-JavaScript-Promise-Land\slides\img\goodnames.jpg" />
     <Content Include="Presentations\From-Callback-Hell-to-the-JavaScript-Promise-Land\slides\img\promiseland.jpg" />
     <Content Include="Presentations\From-Callback-Hell-to-the-JavaScript-Promise-Land\slides\img\q-vs-native-diff.png" />
+    <Content Include="Presentations\From-Callback-Hell-to-the-JavaScript-Promise-Land\slides\img\qrcode.png" />
     <Content Include="Presentations\From-Callback-Hell-to-the-JavaScript-Promise-Land\slides\img\skyline-background-blue.png" />
     <Content Include="Presentations\From-Callback-Hell-to-the-JavaScript-Promise-Land\slides\img\skyline-background-white.png" />
     <Content Include="Presentations\From-Callback-Hell-to-the-JavaScript-Promise-Land\slides\img\skyline-logo-color.png" />
