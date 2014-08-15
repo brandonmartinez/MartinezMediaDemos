@@ -16,7 +16,7 @@ namespace MartinezMediaDemos.Controllers
         public IEnumerable<SampleCommandSet> Get()
         {
             var randomNumberGenerator = new Random((int) DateTime.Now.Ticks);
-            var numberOfSampleCommands = randomNumberGenerator.Next(1, 500);
+            var numberOfSampleCommands = randomNumberGenerator.Next(1, 150);
 
             var commands = Builder<SampleCommand>.CreateListOfSize(numberOfSampleCommands).All().With(s =>
             {
