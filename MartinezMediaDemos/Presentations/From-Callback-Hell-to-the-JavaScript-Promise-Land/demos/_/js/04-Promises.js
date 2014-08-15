@@ -115,7 +115,6 @@ function DemoViewModel() {
 					}, Q())
 				.catch(function(err) {
 					console.log(err);
-					throw err;
 				});
 
 			promises.push(promise);
